@@ -1,0 +1,24 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Nombre</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label position="floating">Nombre</ion-label>
+    <ion-input [(ngModel)]="nombre" type="text"  (input)="onNombreChange($event)"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="predecirGenero()" expand="block">Predecir género</ion-button>
+
+  <ion-item *ngIf="generoTexto"><ion-label>Nombre: {{ nombre }}<br></ion-label></ion-item>
+  <ion-item *ngIf="generoTexto">
+    <ion-label >Género: {{ generoTexto }}</ion-label>
+    <ion-icon *ngIf="generoTexto !== 'Desconocido'" [color]="generoColor" [name]="generoTexto === 'Masculino' ? 'male' : 'female'"></ion-icon>
+  </ion-item>
+
+</ion-content>

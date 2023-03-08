@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Clima en {{ clima?.name }}</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-item>
+      <ion-label position="floating">Ciudad</ion-label>
+      <ion-input [(ngModel)]="ciudad"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="buscarClima()">Buscar</ion-button>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <h2>Clima en {{ clima?.name }}</h2>
+        <p>{{ clima?.weather[0].description }}</p>
+        <p>Temperatura: {{ clima?.main.temp }}°C</p>
+        <p>Sensación térmica: {{ clima?.main.feels_like }}°C</p>
+        <p>Presión: {{ clima?.main.pressure }} hPa</p>
+        <p>Humedad: {{ clima?.main.humidity }}%</p>
+        <p>Viento: {{ clima?.wind.speed }} km/h</p>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
